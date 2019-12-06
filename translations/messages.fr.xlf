@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="U9fwyCB" resname="Collaboration de multiple acteurs pour vous offrir une nourriture qualitative et saine au meilleur prix.">
+        <source>Collaboration de multiple acteurs pour vous offrir une nourriture qualitative et saine au meilleur prix.</source>
+        <target>Collaboration de multiple acteurs pour vous offrir une nourriture qualitative et saine au meilleur prix.</target>
+      </trans-unit>
+      <trans-unit id="ma9mBv_" resname="Menu">
+        <source>Menu</source>
+        <target>Menu</target>
+      </trans-unit>
+      <trans-unit id="IJA9ADD" resname="Magasin">
+        <source>Magasin</source>
+        <target>Magasin</target>
+      </trans-unit>
+      <trans-unit id="KyZR9lw" resname="A Propos">
+        <source>A Propos</source>
+        <target>A Propos</target>
+      </trans-unit>
+      <trans-unit id="jGvAmVN" resname="Blog">
+        <source>Blog</source>
+        <target>Blog</target>
+      </trans-unit>
+      <trans-unit id="ZTbnqlq" resname="Nous Contacter">
+        <source>Nous Contacter</source>
+        <target>Nous Contacter</target>
+      </trans-unit>
+      <trans-unit id="H0L4kXZ" resname="Information de Livraison">
+        <source>Information de Livraison</source>
+        <target>Information de Livraison</target>
+      </trans-unit>
+      <trans-unit id=".mnP5bN" resname="Retour &amp; Echange">
+        <source>Retour &amp; Echange</source>
+        <target><![CDATA[Retour & Echange]]></target>
+      </trans-unit>
+      <trans-unit id="e4UBYWo" resname="Conditions d'Utilisation">
+        <source>Conditions d'Utilisation</source>
+        <target>Conditions d'Utilisation</target>
+      </trans-unit>
+      <trans-unit id="C5.s7VS" resname="Politique de Confidentialité">
+        <source>Politique de Confidentialité</source>
+        <target>Politique de Confidentialité</target>
+      </trans-unit>
+      <trans-unit id="mFa3Qz_" resname="FAQs">
+        <source>FAQs</source>
+        <target>FAQs</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="flWzT5b" resname="Une Question ?">
+        <source>Une Question ?</source>
+        <target>Une Question ?</target>
+      </trans-unit>
+      <trans-unit id="lPRGqOM" resname="203 Fake St. Mountain View, San Francisco, California, USA">
+        <source>203 Fake St. Mountain View, San Francisco, California, USA</source>
+        <target>203 Fake St. Mountain View, San Francisco, California, USA</target>
+      </trans-unit>
+      <trans-unit id="HzBfL75" resname="+2 392 3929 210">
+        <source>+2 392 3929 210</source>
+        <target>+2 392 3929 210</target>
+      </trans-unit>
+      <trans-unit id="bt6pEGt" resname="info@yourdomain.com">
+        <source>info@yourdomain.com</source>
+        <target>info@yourdomain.com</target>
+      </trans-unit>
+      <trans-unit id="634x9FV" resname="Tous droits réservés | Ce template est fait avec">
+        <source>Tous droits réservés | Ce template est fait avec</source>
+        <target>Tous droits réservés | Ce template est fait avec</target>
+      </trans-unit>
+      <trans-unit id="ydnSxL6" resname="par">
+        <source>par</source>
+        <target>par</target>
+      </trans-unit>
+      <trans-unit id="K7iKgAf" resname="Boutique">
+        <source>Boutique</source>
+        <target>Boutique</target>
+      </trans-unit>
+      <trans-unit id="pZRRKgG" resname="Des produits pour tous les goûts">
+        <source>Des produits pour tous les goûts</source>
+        <target>Des produits pour tous les goûts</target>
+      </trans-unit>
+      <trans-unit id="mN0_JwG" resname="Catégories alimentaires">
+        <source>Catégories alimentaires</source>
+        <target>Catégories alimentaires</target>
+      </trans-unit>
+      <trans-unit id="zPzWt0h" resname="Sélectionnez la catégorie de votre choix">
+        <source>Sélectionnez la catégorie de votre choix</source>
+        <target>Sélectionnez la catégorie de votre choix</target>
+      </trans-unit>
+      <trans-unit id="Zkdwhy2" resname="Rayon">
+        <source>Rayon</source>
+        <target>Rayon</target>
+      </trans-unit>
+      <trans-unit id="nPYuRXC" resname="Aucun produit n'a été trouvé">
+        <source>Aucun produit n'a été trouvé</source>
+        <target>Aucun produit n'a été trouvé</target>
+      </trans-unit>
+      <trans-unit id="UzFhc1Y" resname="Accueil">
+        <source>Accueil</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="SWtMYIv" resname="Contactez-nous">
+        <source>Contactez-nous</source>
+        <target>Contactez-nous</target>
+      </trans-unit>
+      <trans-unit id="eeXPIN4" resname="Adresse">
+        <source>Adresse</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="zExCS1c" resname="Téléphone">
+        <source>Téléphone</source>
+        <target>Téléphone</target>
+      </trans-unit>
+      <trans-unit id="JVDZYuU" resname="E-mail">
+        <source>E-mail</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="E1fk0Id" resname="Site Internet">
+        <source>Site Internet</source>
+        <target>Site Internet</target>
+      </trans-unit>
+      <trans-unit id="old2Dse" resname="Votre Nom">
+        <source>Votre Nom</source>
+        <target>Votre Nom</target>
+      </trans-unit>
+      <trans-unit id="KIeucxj" resname="Votre Email">
+        <source>Votre Email</source>
+        <target>Votre Email</target>
+      </trans-unit>
+      <trans-unit id="21nrsnI" resname="Sujet">
+        <source>Sujet</source>
+        <target>Sujet</target>
+      </trans-unit>
+      <trans-unit id="L3dmip3" resname="Message">
+        <source>Message</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="d7zpI6e" resname="Envoyer le message">
+        <source>Envoyer le message</source>
+        <target>Envoyer le message</target>
+      </trans-unit>
+      <trans-unit id="vx8GHiM" resname="Fruits et légumes frais">
+        <source>Fruits et légumes frais</source>
+        <target>Fruits et légumes frais</target>
+      </trans-unit>
+      <trans-unit id="0peWVBJ" resname="Nous livrons fruits &amp;amp; légumes">
+        <source>Nous livrons fruits &amp;amp; légumes</source>
+        <target><![CDATA[Nous livrons fruits &amp; légumes]]></target>
+      </trans-unit>
+      <trans-unit id="_IiTwD0" resname="Nourriture 100% fraiche et organique">
+        <source>Nourriture 100% fraiche et organique</source>
+        <target>Nourriture 100% fraiche et organique</target>
+      </trans-unit>
+      <trans-unit id="1WzUAXL" resname="Voir les Détails">
+        <source>Voir les Détails</source>
+        <target>Voir les Détails</target>
+      </trans-unit>
+      <trans-unit id="IvqidwL" resname="Nos Produits">
+        <source>Nos Produits</source>
+        <target>Nos Produits</target>
+      </trans-unit>
+      <trans-unit id="IgRyaGA" resname="Les meilleurs produits de la région sont à votre portée !">
+        <source>Les meilleurs produits de la région sont à votre portée !</source>
+        <target>Les meilleurs produits de la région sont à votre portée !</target>
+      </trans-unit>
+      <trans-unit id="cFWPR9p" resname="Poivrons">
+        <source>Poivrons</source>
+        <target>Poivrons</target>
+      </trans-unit>
+      <trans-unit id="rEvr3MV" resname="Fraises">
+        <source>Fraises</source>
+        <target>Fraises</target>
+      </trans-unit>
+      <trans-unit id="6qDjP2p" resname="Haricots verts">
+        <source>Haricots verts</source>
+        <target>Haricots verts</target>
+      </trans-unit>
+      <trans-unit id="1bsypv1" resname="Choux violet">
+        <source>Choux violet</source>
+        <target>Choux violet</target>
+      </trans-unit>
+      <trans-unit id="lurvr8P" resname="Tomate">
+        <source>Tomate</source>
+        <target>Tomate</target>
+      </trans-unit>
+      <trans-unit id="p7h55.d" resname="Brocoli">
+        <source>Brocoli</source>
+        <target>Brocoli</target>
+      </trans-unit>
+      <trans-unit id="uasM.iT" resname="Carottes">
+        <source>Carottes</source>
+        <target>Carottes</target>
+      </trans-unit>
+      <trans-unit id="QpU1UFc" resname="Jus de Fruit">
+        <source>Jus de Fruit</source>
+        <target>Jus de Fruit</target>
+      </trans-unit>
+      <trans-unit id="AAl.mlA" resname="Au Meilleur Prix Pour Vous">
+        <source>Au Meilleur Prix Pour Vous</source>
+        <target>Au Meilleur Prix Pour Vous</target>
+      </trans-unit>
+      <trans-unit id="AAVcW7f" resname="Affaire du jour">
+        <source>Affaire du jour</source>
+        <target>Affaire du jour</target>
+      </trans-unit>
+      <trans-unit id="TiLZacK" resname="Épinards">
+        <source>Épinards</source>
+        <target>Épinards</target>
+      </trans-unit>
+      <trans-unit id="DBEEROH" resname="now $5 only">
+        <source>now $5 only</source>
+        <target>now $5 only</target>
+      </trans-unit>
+      <trans-unit id="D4fe1rc" resname="+ 1235 2355 98">
+        <source>+ 1235 2355 98</source>
+        <target>+ 1235 2355 98</target>
+      </trans-unit>
+      <trans-unit id="_ScB1xi" resname="youremail@email.fr">
+        <source>youremail@email.fr</source>
+        <target>youremail@email.fr</target>
+      </trans-unit>
+      <trans-unit id=".D03mw5" resname="3-5 Business days delivery &amp;amp; Free Returns">
+        <source>3-5 Business days delivery &amp;amp; Free Returns</source>
+        <target><![CDATA[3-5 Business days delivery &amp; Free Returns]]></target>
+      </trans-unit>
+      <trans-unit id=".7vCc6." resname="Chercher un produit">
+        <source>Chercher un produit</source>
+        <target>Chercher un produit</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
