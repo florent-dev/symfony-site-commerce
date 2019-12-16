@@ -215,7 +215,7 @@
       </trans-unit>
       <trans-unit id="DBEEROH" resname="now $5 only">
         <source>now $5 only</source>
-        <target>now $5 only</target>
+        <target>passe à $5 seulement</target>
       </trans-unit>
       <trans-unit id="D4fe1rc" resname="+ 1235 2355 98">
         <source>+ 1235 2355 98</source>

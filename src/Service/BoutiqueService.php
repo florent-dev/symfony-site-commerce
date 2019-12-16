@@ -72,94 +72,119 @@ class BoutiqueService {
     private $categories = [
         [
             "id" => 1,
-            "libelle" => "Fruits",
-            "visuel" => "fruits.jpg",
-            "texte" => "De la passion ou de ton imagination",
-        ],
-        [
-            "id" => 3,
-            "libelle" => "Junk Food",
-            "visuel" => "junk_food.jpg",
-            "texte" => "Chère et cancérogène, tu es prévenu(e)",
+            "libelle" => "Légumes",
+            "visuel" => "category-1.jpg",
+            "texte" => "Plus tu en manges, moins tu en es un",
         ],
         [
             "id" => 2,
-            "libelle" => "Légumes",
-            "visuel" => "legumes.jpg",
-            "texte" => "Plus tu en manges, moins tu en es un"],
+            "libelle" => "Fruits",
+            "visuel" => "category-2.jpg",
+            "texte" => "De la passion ou de ton imagination"
+        ],
+        [
+            "id" => 3,
+            "libelle" => "Boissons",
+            "visuel" => "category-3.jpg",
+            "texte" => "Des mixtures aux saveurs extraordinaires",
+        ],
     ];
     private $produits = [
         [
             "id" => 1,
-            "idCategorie" => 1,
-            "libelle" => "Pomme",
+            "idCategorie" => 2,
+            "libelle" => "Pommes",
             "texte" => "Elle est bonne pour la tienne",
-            "visuel" => "pommes.jpg",
+            "visuel" => "produit-pommes.jpg",
             "prix" => 3.42
         ],
         [
             "id" => 2,
-            "idCategorie" => 1,
-            "libelle" => "Poire",
+            "idCategorie" => 2,
+            "libelle" => "Fraises",
             "texte" => "Ici tu n'en es pas une",
-            "visuel" => "poires.jpg",
+            "visuel" => "produit-fraises.jpg",
             "prix" => 2.11
         ],
         [
             "id" => 3,
             "idCategorie" => 1,
-            "libelle" => "Pêche",
+            "libelle" => "Carottes",
             "texte" => "Elle va te la donner",
-            "visuel" => "peche.jpg",
+            "visuel" => "produit-carottes.jpg",
             "prix" => 2.84
         ],
         [
             "id" => 4,
-            "idCategorie" => 2,
-            "libelle" => "Carotte",
+            "idCategorie" => 1,
+            "libelle" => "Choux-fleurs",
             "texte" => "C'est bon pour ta vue",
-            "visuel" => "carottes.jpg",
+            "visuel" => "produit-choux-fleurs.jpg",
             "prix" => 2.90
         ],
         [
             "id" => 5,
-            "idCategorie" => 2,
-            "libelle" => "Tomate",
+            "idCategorie" => 1,
+            "libelle" => "Choux violets",
             "texte" => "Fruit ou Légume ? Légume",
-            "visuel" => "tomates.jpg",
+            "visuel" => "produit-choux-violets.jpg",
             "prix" => 1.70
         ],
         [
             "id" => 6,
-            "idCategorie" => 2,
-            "libelle" => "Chou Romanesco",
+            "idCategorie" => 1,
+            "libelle" => "Echalottes",
             "texte" => "Mange des fractales",
-            "visuel" => "romanesco.jpg",
+            "visuel" => "produit-echalottes.jpg",
             "prix" => 1.81
         ],
         [
             "id" => 7,
-            "idCategorie" => 3,
-            "libelle" => "Nutella",
+            "idCategorie" => 1,
+            "libelle" => "Haricots verts",
             "texte" => "C'est bon, sauf pour ta santé",
-            "visuel" => "nutella.jpg",
+            "visuel" => "produit-haricots-verts.jpg",
             "prix" => 4.50
         ],
         [
             "id" => 8,
-            "idCategorie" => 3,
-            "libelle" => "Pizza",
+            "idCategorie" => 1,
+            "libelle" => "Oignons",
             "texte" => "Y'a pas pire que za",
-            "visuel" => "pizza.jpg",
+            "visuel" => "produit-oignons.jpg",
             "prix" => 8.25
         ],
         [
             "id" => 9,
+            "idCategorie" => 1,
+            "libelle" => "Piments",
+            "texte" => "Seulement si tu es un pertubateur",
+            "visuel" => "produit-piments.jpg",
+            "prix" => 3.75
+        ],
+        [
+            "id" => 10,
+            "idCategorie" => 1,
+            "libelle" => "Poivrons",
+            "texte" => "Si tu aimes les couleurs",
+            "visuel" => "produit-poivrons.jpg",
+            "prix" => 2.16
+        ],
+        [
+            "id" => 11,
+            "idCategorie" => 1,
+            "libelle" => "Tomates",
+            "texte" => "Rondes et fraiches",
+            "visuel" => "produit-tomates.jpg",
+            "prix" => 1.80
+        ],
+        [
+            "id" => 12,
             "idCategorie" => 3,
-            "libelle" => "Oreo",
-            "texte" => "Seulement si tu es un smartphone",
-            "visuel" => "oreo.jpg",
-            "prix" => 2.50
+            "libelle" => "Jus multi-fruits",
+            "texte" => "Toutes les saveurs en un seul jus",
+            "visuel" => "produit-jus-de-fruits.jpg",
+            "prix" => 4.50
         ],
     ];
 }
