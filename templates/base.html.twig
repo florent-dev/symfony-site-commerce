@@ -31,7 +31,7 @@
     </head>
     <body class="goto-here">
         {% block header %}
-            {% include 'navbar.html.twig' %}
+            {{ render(controller('App\\Controller\\DefaultController::navBar')) }}
         {% endblock %}
 
         {% block content %}{% endblock %}

@@ -1,10 +1,11 @@
 <?php
 namespace App\Service;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 // Un service pour manipuler le contenu de la Boutique
 //  qui est composée de catégories et de produits stockés "en dur"
-class BoutiqueService {
+class BoutiqueService extends AbstractController {
 
     // renvoie toutes les catégories
     public function findAllCategories() {
@@ -15,7 +16,7 @@ class BoutiqueService {
     public function findCategorieById(int $idCategorie) {
         $res = array_filter($this->categories,
                 function ($c) use($idCategorie) {
-            return $c["id"] == $idCategorie;
+            return $c['id'] == $idCategorie;
         });
         return (sizeof($res) === 1) ? $res[array_key_first($res)] : null;
     }
@@ -24,7 +25,7 @@ class BoutiqueService {
     public function findProduitById(int $idProduit) {
         $res = array_filter($this->produits,
                 function ($p) use($idProduit) {
-            return $p["id"] == $idProduit;
+            return $p['id'] == $idProduit;
         });
         return (sizeof($res) === 1) ? $res[array_key_first($res)] : null;
     }
@@ -33,7 +34,7 @@ class BoutiqueService {
     public function findProduitsByCategorie(int $idCategorie) {
         return array_filter($this->produits,
                 function ($p) use($idCategorie) {
-            return $p["idCategorie"] == $idCategorie;
+            return $p['idCategorie'] == $idCategorie;
         });
     }
 
@@ -41,7 +42,7 @@ class BoutiqueService {
     public function findProduitsByLibelleOrTexte(string $search) {
         return array_filter($this->produits,
                 function ($p) use ($search) {
-                  return ($search=="" || mb_strpos(mb_strtolower($p["libelle"]." ".$p["texte"]), mb_strtolower($search)) !== false);
+                  return ($search=='' || mb_strpos(mb_strtolower($p['libelle'].' '.$p['texte']), mb_strtolower($search)) !== false);
         });
     }
 
@@ -52,11 +53,11 @@ class BoutiqueService {
         $this->requestStack = $requestStack;
         // On trie le tableau des catégories selon la locale
         usort($this->categories, function ($c1, $c2) {
-            return $this->compareSelonLocale($c1["libelle"], $c2["libelle"]);
+            return $this->compareSelonLocale($c1['libelle'], $c2['libelle']);
         });
         // On trie le tableau des produits de chaque catégorie selon la locale
         usort($this->produits, function ($c1, $c2) {
-            return $this->compareSelonLocale($c1["libelle"], $c2["libelle"]);
+            return $this->compareSelonLocale($c1['libelle'], $c2['libelle']);
         });
     }
 
