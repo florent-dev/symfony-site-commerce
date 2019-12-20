@@ -32,6 +32,8 @@
                 <li class="nav-item"><a href="{{ path('boutique') }}" class="nav-link">{% trans %}Boutique{% endtrans %}</a></li>
                 <li class="nav-item"><form method="POST" action="{{ path('search') }}" class="nav-link" style="margin-top: -4px;"><input type="text" name="productName" placeholder="{% trans %}Chercher un produit{% endtrans %}" /></form></li>
                 <li class="nav-item"><a href="{{ path('contact') }}" class="nav-link">{% trans %}Contact{% endtrans %}</a></li>
+                <li class="nav-item"><a href="{{ path('utilisateur_inscription') }}" class="nav-link">{% trans %}S'incrire{% endtrans %}</a></li>
+                <li class="nav-item"><a href="{{ path('utilisateur_accueil') }}" class="nav-link">{% trans %}Se connecter{% endtrans %}</a></li>
                 <li class="nav-item cta cta-colored"><a href="{{ path('panier_index') }}" class="nav-link"><span class="icon-shopping_cart"></span>[{{ panier_number }}]</a></li>
                 <li class="nav-item cta cta-colored"><span class="nav-link">[<a href="{{ path('index') }}en">EN</a>/<a href="{{ path('index') }}fr">FR</a>]</span></li>
             </ul>

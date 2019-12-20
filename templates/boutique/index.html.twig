@@ -2,7 +2,7 @@
 
 {% block title %}{% trans %}Boutique{% endtrans %}{% endblock %}
 
-{% block content %}
+{% block body %}
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
@@ -20,9 +20,9 @@
                 {% for category in categories %}
                     <div class="col-md-4">
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url({{ asset('assets/images/' ~ category.visuel) }});">
-                            <div class="text px-3 py-1">
+                            <div class="text px-3 py-1 w-100">
                                 <h2 class="mb-0"><a href="{{ path('rayon', {'idCategory': category.id}) }}">{{ category.libelle }}</a></h2>
-                                <h6 class="price">{{ category.texte }}</h6>
+                                <h6 class="text-light">{{ category.texte }}</h6>
                             </div>
                         </div>
                     </div>

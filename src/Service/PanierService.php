@@ -99,7 +99,7 @@ class PanierService {
         $this->session->set('panier', $this->panier);
     }
 
-    // vider vide complètement le panier
+    // vider complètement le panier
     public function vider()
     {
         $this->panier = [];

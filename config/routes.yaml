@@ -23,3 +23,19 @@ boutique:
     _locale: '%app.supported_locales%'
   defaults:
     _locale: fr
+
+utilisateur_accueil:
+  path: /{_locale}/utilisateur_accueil
+  controller: App\Controller\UtilisateurController::index
+  requirements:
+    _locale: '%app.supported_locales%'
+  defaults:
+    _locale: fr
+
+utilisateur_inscription:
+  path: /{_locale}/inscription
+  controller: App\Controller\UtilisateurController::new
+  requirements:
+    _locale: '%app.supported_locales%'
+  defaults:
+    _locale: fr
