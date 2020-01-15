@@ -63,4 +63,14 @@ class PanierController extends AbstractController
         $this->panierService->vider();
         return $this->redirectToRoute('panier_index');
     }
+
+    /**
+     * @Route("/panier/valider", name="panier_valider")
+     */
+    public function panierValider()
+    {
+        //ManagerRegistry $managerRegistry, EntityManagerInterface $entityManager
+        $this->panierService->panierToCommande($this->getUser(), $this->getDoctrine(), $this->getDoctrine()->getManager());
+        return $this->redirectToRoute('panier_index');
+    }
 }

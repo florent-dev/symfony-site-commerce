@@ -5,39 +5,35 @@
 {% block body %}
     <section>
         <div class="container">
-            <h1>Utilisateur index</h1>
+            {% if app.user %}
+                <h1>Utilisateur index</h1>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Email</th>
-                        <th>Roles</th>
-                        <th>Password</th>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% if utilisateur is not null %}
-                    <tr>
-                        <td>{{ utilisateur.id }}</td>
-                        <td>{{ utilisateur.email }}</td>
-                        <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
-                        <td>{{ utilisateur.password }}</td>
-                        <td>{{ utilisateur.nom }}</td>
-                        <td>{{ utilisateur.prenom }}</td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="7">Pas d'utilisateur trouvé</td>
-                    </tr>
-                {% endif %}
-                </tbody>
-            </table>
-
-            <a href="{{ path('utilisateur_inscription') }}">S'inscrire</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>Roles</th>
+                            <th>Password</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ utilisateur.id }}</td>
+                            <td>{{ utilisateur.email }}</td>
+                            <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
+                            <td>{{ utilisateur.password }}</td>
+                            <td>{{ utilisateur.nom }}</td>
+                            <td>{{ utilisateur.prenom }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                Connectez-vous
+            {% endif %}
         </div>
     </section>
 {% endblock %}

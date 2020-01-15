@@ -2,10 +2,15 @@
 
 namespace App\Service;
 
+use App\Entity\Commande;
+use App\Entity\LigneCommande;
 use App\Entity\Utilisateur;
 use App\Repository\ArticleRepository;
+use App\Repository\CommandeRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
@@ -23,7 +28,6 @@ class PanierService {
     public function __construct(SessionInterface $session) {
         // Récupération des services session et des articles en boutique
         $this->session = $session;
-
         // Récupération du panier en session s'il existe, init. à vide sinon
         $this->panier = $session->get('panier');
         if ($this->panier === null) {
@@ -31,10 +35,29 @@ class PanierService {
         }
     }
 
-    public function panierToCommande(Utilisateur $utilisateur) {
+    public function panierToCommande(Utilisateur $utilisateur, ManagerRegistry $managerRegistry, ObjectManager $entityManager) {
         // créé pour cet usager, une commande (et ses lignes de commande) à partir du contenu du panier (s’il n’est pas vide)
         // Le contenu du panier devra être supprimé à l’issue de ce traitement.
         // Cette méthode renverra en résultat l’entité Commande qui aura été créée.
+
+        $commande = new Commande();
+        $commande->setIdUtilisateur($utilisateur);
+        $commande->setStatut(1);
+        $commande->setDateCommande(new \DateTime());
+
+        $entityManager->persist($commande);
+        $entityManager->flush();
+
+        foreach ($this->panier as $idProduit => $quantite) {
+            $produit = $this->getArticleRepository($managerRegistry)->find($idProduit);
+            $ligneCommande = new LigneCommande($produit, $commande, $quantite);
+            $entityManager->persist($ligneCommande);
+            $commande->addLigneCommande($ligneCommande);
+        }
+
+        $entityManager->flush();
+
+        $this->vider();
     }
 
     // getContenu renvoie le contenu du panier
@@ -54,7 +77,7 @@ class PanierService {
         $total = 0;
 
         foreach ($this->panier as $idProduit => $quantite) {
-            $total = $this->getArticleRepository($managerRegistry)->find($idProduit)->getPrix() * $quantite;
+            $total += $this->getArticleRepository($managerRegistry)->find($idProduit)->getPrix() * $quantite;
         }
 
         return $total;

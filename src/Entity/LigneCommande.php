@@ -30,10 +30,22 @@ class LigneCommande
      */
     private $id_commande;
 
-    public function __construct()
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $quantite;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $prix;
+
+    public function __construct(Article $article, Commande $commande, float $quantite)
     {
-        $this->id_article = new ArrayCollection();
-        $this->id_commande = new ArrayCollection();
+        $this->id_article = $article;
+        $this->id_commande = $commande;
+        $this->quantite = $quantite;
+        $this->prix = $article->getPrix();
     }
 
     public function getId(): ?int
@@ -61,6 +73,30 @@ class LigneCommande
     public function setIdCommande(?Commande $id_commande): self
     {
         $this->id_commande = $id_commande;
+
+        return $this;
+    }
+
+    public function getQuantite(): ?int
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(int $quantite): self
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }

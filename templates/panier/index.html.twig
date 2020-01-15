@@ -89,7 +89,11 @@
                             <span>{{ prixTotal }} €</span>
                         </p>
                     </div>
-                    <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Procéder au paiement</a></p>
+                    {% if app.user %}
+                        <p><a href="{{ path('panier_valider') }}" class="btn btn-primary py-3 px-4">Passer commande</a></p>
+                    {% else %}
+                        <p><a href="{{ path('utilisateur_accueil') }}" class="btn btn-primary py-3 px-4">Connectez-vous pour valider la commande</a></p>
+                    {% endif %}
                 </div>
             </div>
         </div>
