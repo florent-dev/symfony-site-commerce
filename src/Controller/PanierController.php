@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\BoutiqueService;
+use App\Repository\ArticleRepository;
 use App\Service\PanierService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -12,19 +12,19 @@ class PanierController extends AbstractController
 {
     private $panierService;
 
-    public function __construct(BoutiqueService $boutiqueService)
+    public function __construct(PanierService $panierService)
     {
-        $this->panierService = new PanierService(new Session(), $boutiqueService);
+        $this->panierService = $panierService;
     }
 
     /**
      * @Route("/panier", name="panier_index")
      */
-    public function index(PanierService $panierService)
+    public function index()
     {
         return $this->render('panier/index.html.twig', [
-            'items' => $panierService->getContenu(),
-            'prixTotal' => $panierService->getTotal(),
+            'items' => $this->panierService->getContenu($this->getDoctrine()),
+            'prixTotal' => $this->panierService->getTotal($this->getDoctrine()),
         ]);
     }
 

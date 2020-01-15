@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Service\BoutiqueService;
+use App\Repository\ArticleRepository;
+use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,12 +13,11 @@ class BoutiqueController extends AbstractController
 {
     /**
      * @Route("/boutique", name="boutique")
-     * @param BoutiqueService $boutique
      * @return Response
      */
-    public function boutique(BoutiqueService $boutique)
+    public function boutique()
     {
-        $categories = $boutique->findAllCategories();
+        $categories = ( new CategorieRepository($this->getDoctrine()) )->findAll();
 
         return $this->render('boutique/index.html.twig', [
             'categories' => $categories,
@@ -26,13 +26,12 @@ class BoutiqueController extends AbstractController
 
     /**
      * @Route("/rayon/{idCategory}", name="rayon")
-     * @param BoutiqueService $boutique
      * @param $idCategory
      * @return Response
      */
-    public function rayon(BoutiqueService $boutique, $idCategory)
+    public function rayon($idCategory)
     {
-        $products = $boutique->findProduitsByCategorie($idCategory);
+        $products = ( new ArticleRepository($this->getDoctrine()) )->findBy(['id_categorie' => $idCategory]);
 
         return $this->render('boutique/rayon.html.twig', [
             'products' => $products,
@@ -40,16 +39,18 @@ class BoutiqueController extends AbstractController
     }
 
     /**
+     * Recherche par libelle ou texte
      * @Route("/search", name="search")
-     * @param BoutiqueService $boutique
      * @return Response
      */
-    public function search(BoutiqueService $boutique, Request $request)
+    public function search(Request $request)
     {
         $products = null;
+        $search = $request->get('productName');
 
-        if (null !== $request->get('productName')) {
-            $products = $boutique->findProduitsByLibelleOrTexte($request->get('productName'));
+        // TODO : Requête custom Doctrine
+        if (null !== $search) {
+            $products = ( new ArticleRepository($this->getDoctrine()) )->findBy(['libelle' => $search]);
         }
         return $this->render('boutique/rayon.html.twig', [
             'products' => $products,

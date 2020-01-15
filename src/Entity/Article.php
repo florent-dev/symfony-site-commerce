@@ -29,6 +29,26 @@ class Article
      */
     private $ligneCommandes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $libelle;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $texte;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $visuel;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $prix;
+
     public function __construct()
     {
         $this->ligneCommandes = new ArrayCollection();
@@ -78,6 +98,54 @@ class Article
                 $ligneCommande->setIdArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(string $libelle): self
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getTexte(): ?string
+    {
+        return $this->texte;
+    }
+
+    public function setTexte(string $texte): self
+    {
+        $this->texte = $texte;
+
+        return $this;
+    }
+
+    public function getVisuel(): ?string
+    {
+        return $this->visuel;
+    }
+
+    public function setVisuel(string $visuel): self
+    {
+        $this->visuel = $visuel;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }
