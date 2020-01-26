@@ -1,39 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateur index{% endblock %}
+{% block title %}Gestion utilisateurs{% endblock %}
 
 {% block body %}
     <section>
         <div class="container">
-            {% if app.user %}
-                <h1>Administration</h1>
+                <h1>Gestion des utilisateurs</h1>
 
                 <table class="table">
                     <thead>
                     <tr>
                         <th>Id</th>
                         <th>Email</th>
-                        <th>Roles</th>
-                        <th>Password</th>
                         <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>actions</th>
+                        <th>Prénom</th>
+                        <th>Est admin</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>{{ utilisateur.id }}</td>
-                        <td>{{ utilisateur.email }}</td>
-                        <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
-                        <td>{{ utilisateur.password }}</td>
-                        <td>{{ utilisateur.nom }}</td>
-                        <td>{{ utilisateur.prenom }}</td>
-                    </tr>
+                    {% for utilisateur in utilisateurs %}
+                        <tr>
+                            <td>{{ utilisateur.id }}</td>
+                            <td>{{ utilisateur.email }}</td>
+                            <td>{{ utilisateur.nom }}</td>
+                            <td>{{ utilisateur.prenom }}</td>
+                            <td>
+                                <a href="{{ path('utilisateur_updaterank', {'utilisateur': utilisateur.id}) }}" class="badge p-2 badge-{% if 'ROLE_ADMIN' in utilisateur.roles %}info{% else %}warning{% endif %}">{% if 'ROLE_ADMIN' in utilisateur.roles %}OUI{% else %}NON{% endif %}</a>
+                                <a href="{{ path('utilisateur_delete', {'utilisateur': utilisateur.id}) }}" class="badge p-2 badge-danger">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
-            {% else %}
-                Connectez-vous
-            {% endif %}
         </div>
     </section>
 {% endblock %}

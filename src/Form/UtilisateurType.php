@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
 
 class UtilisateurType extends AbstractType
 {
@@ -19,7 +20,7 @@ class UtilisateurType extends AbstractType
             ->add('password', PasswordType::class, ['label' => false, 'attr' => ['placeholder' => 'Mot de passe']])
             ->add('nom', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'Nom']])
             ->add('prenom', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'Prénom']])
-        ;
+            ->add('captchaCode', CaptchaType::class, ['captchaConfig' => 'ExampleCaptcha']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

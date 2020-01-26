@@ -7,8 +7,13 @@ use App\Entity\LigneCommande;
 use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
 use App\Repository\UtilisateurRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
+use Doctrine\ORM\TransactionRequiredException;
 use phpDocumentor\Reflection\Types\Collection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -74,5 +79,51 @@ class UtilisateurController extends AbstractController
             'utilisateur' => $utilisateur,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/delete/{utilisateur}", name="utilisateur_delete")
+     * @param Utilisateur $utilisateur
+     * @return RedirectResponse
+     */
+    public function delete(Utilisateur $utilisateur)
+    {
+        // Action d'un admin
+        if ($this->getUser() && $this->getUser()->isAdmin()) {
+
+            if ($utilisateur) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($utilisateur);
+                $entityManager->flush();
+            }
+
+            return $this->redirectToRoute('admin_index');
+        }
+
+        return $this->redirectToRoute('index');
+    }
+
+    /**
+     * @Route("/updaterank/{utilisateur}", name="utilisateur_updaterank")
+     * @param Utilisateur $utilisateur
+     * @return RedirectResponse
+     */
+    public function updateRank(Utilisateur $utilisateur)
+    {
+        // Action d'un admin
+        if ($this->getUser() && $this->getUser()->isAdmin()) {
+
+            if ($utilisateur) {
+                $role = ($utilisateur->isAdmin()) ? 'ROLE_USER' : 'ROLE_ADMIN';
+                $utilisateur->setRoles([$role]);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($utilisateur);
+                $entityManager->flush();
+            }
+
+            return $this->redirectToRoute('admin_index');
+        }
+
+        return $this->redirectToRoute('index');
     }
 }

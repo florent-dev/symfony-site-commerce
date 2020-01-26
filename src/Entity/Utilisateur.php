@@ -102,6 +102,14 @@ class Utilisateur implements UserInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return (in_array('ROLE_ADMIN', $this->roles));
+    }
+
+    /**
      * @see UserInterface
      */
     public function getPassword(): string
