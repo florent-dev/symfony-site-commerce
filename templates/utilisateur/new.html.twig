@@ -6,6 +6,13 @@
     <section class="ftco-section">
         <div class="container">
             <h1>Inscription</h1>
+            {% for label, messages in app.flashes(['warning', 'error']) %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
             {{ include('utilisateur/_form.html.twig') }}
         </div>
     </section>

@@ -33,7 +33,7 @@
     </head>
     <body class="goto-here">
         {% block header %}
-            {{ render(controller('App\\Controller\\AdministrationController::navbarAdmin')) }}
+            {{ render(controller('App\\Controller\\DefaultController::navbarAdmin')) }}
             {{ render(controller('App\\Controller\\DefaultController::navBar')) }}
             {{ render(controller('App\\Controller\\BoutiqueController::sideBarTopVentes')) }}
         {% endblock %}

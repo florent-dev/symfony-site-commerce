@@ -1,3 +1,4 @@
+{% if is_admin %}
 <div class="py-1 bg-dark">
     <div class="container">
         <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
@@ -9,15 +10,15 @@
                     </div>
 
                     <div class="col-md pr-4 d-flex topper align-items-center">
-                        <span class="text"><a href="{{ path('admin_articles') }}">Gérer les articles</a></span>
+                        <span class="text"><a href="{{ path('index') }}">Gérer les articles</a></span>
                     </div>
 
                     <div class="col-md pr-4 d-flex topper align-items-center text-lg-right">
-                        <span class="text"><a href="{{ path('admin_categories') }}">Gérer les catégories</a></span>
+                        <span class="text"><a href="{{ path('categorie_index') }}">Gérer les catégories</a></span>
                     </div>
 
                     <div class="col-md pr-4 d-flex topper align-items-center text-lg-right">
-                        <span class="text"><a href="{{ path('admin_index') }}">Gérer les utilisateurs</a></span>
+                        <span class="text"><a href="{{ path('show_users') }}">Gérer les utilisateurs</a></span>
                     </div>
 
                 </div>
@@ -25,3 +26,4 @@
         </div>
     </div>
 </div>
+{% endif %}

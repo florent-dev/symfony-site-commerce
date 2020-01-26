@@ -51,6 +51,22 @@ class UtilisateurController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/show", name="show_users")
+     */
+    public function show()
+    {
+        if ($this->getUser() && $this->getUser()->isAdmin()) {
+            $utilisateurs = $this->getDoctrine()->getRepository(Utilisateur::class)->findAll();
+
+            return $this->render('utilisateur/show.html.twig', [
+                'utilisateurs' => $utilisateurs,
+            ]);
+        }
+
+        return $this->redirectToRoute('index');
+    }
+
     /*
      * Création automatique d'un utilisateur
      */
@@ -66,9 +82,14 @@ class UtilisateurController extends AbstractController
             $utilisateur->setRoles(['ROLE_CLIENT']);
 
             // Sauvegarde
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($utilisateur);
-            $entityManager->flush();
+            try {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($utilisateur);
+                $entityManager->flush();
+            } catch (\Exception $exception) {
+                $this->addFlash('error', 'L\'e-mail existe déjà');
+                return $this->redirectToRoute('utilisateur_inscription');
+            }
 
             $this->get('session')->set('user', $utilisateur);
 
@@ -97,7 +118,7 @@ class UtilisateurController extends AbstractController
                 $entityManager->flush();
             }
 
-            return $this->redirectToRoute('admin_index');
+            return $this->redirectToRoute('show_users');
         }
 
         return $this->redirectToRoute('index');
@@ -121,7 +142,7 @@ class UtilisateurController extends AbstractController
                 $entityManager->flush();
             }
 
-            return $this->redirectToRoute('admin_index');
+            return $this->redirectToRoute('show_users');
         }
 
         return $this->redirectToRoute('index');

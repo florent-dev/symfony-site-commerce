@@ -30,4 +30,10 @@ class DefaultController extends AbstractController
             'panier_number' => $panierService->getNbProduits(),
         ]);
     }
+
+    public function navbarAdmin() {
+        return $this->render('navbar_admin.html.twig', [
+            'is_admin' => $this->getUser() && in_array('ROLE_ADMIN', $this->getUser()->getRoles())
+        ]);
+    }
 }
