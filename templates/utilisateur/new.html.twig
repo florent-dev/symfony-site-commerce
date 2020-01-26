@@ -1,15 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Utilisateur{% endblock %}
 
+{% block title %}Inscription{% endblock %}
 {% block body %}
-<section>
-    <div class="container">
-        <h1>S'inscrire</h1>
-
-        {{ include('utilisateur/_form.html.twig') }}
-
-        <a href="{{ path('utilisateur_accueil') }}">Retour à la connexion</a>
-    </div>
+    <section class="ftco-section">
+        <div class="container">
+            <h1>Inscription</h1>
+            {{ include('utilisateur/_form.html.twig') }}
+        </div>
     </section>
 {% endblock %}

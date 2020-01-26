@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur index{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            {% if app.user %}
+                <h1>Administration</h1>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                        <th>Password</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ utilisateur.id }}</td>
+                        <td>{{ utilisateur.email }}</td>
+                        <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
+                        <td>{{ utilisateur.password }}</td>
+                        <td>{{ utilisateur.nom }}</td>
+                        <td>{{ utilisateur.prenom }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                Connectez-vous
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

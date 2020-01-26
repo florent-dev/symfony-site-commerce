@@ -25,12 +25,6 @@ class LigneCommande
     private $id_article;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="ligneCommandes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $id_commande;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $quantite;
@@ -39,6 +33,12 @@ class LigneCommande
      * @ORM\Column(type="float")
      */
     private $prix;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="ligneCommandes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_commande;
 
     public function __construct(Article $article, Commande $commande, float $quantite)
     {
@@ -65,18 +65,6 @@ class LigneCommande
         return $this;
     }
 
-    public function getIdCommande(): ?Commande
-    {
-        return $this->id_commande;
-    }
-
-    public function setIdCommande(?Commande $id_commande): self
-    {
-        $this->id_commande = $id_commande;
-
-        return $this;
-    }
-
     public function getQuantite(): ?int
     {
         return $this->quantite;
@@ -97,6 +85,18 @@ class LigneCommande
     public function setPrix(float $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getIdCommande(): ?Commande
+    {
+        return $this->id_commande;
+    }
+
+    public function setIdCommande(?Commande $id_commande): self
+    {
+        $this->id_commande = $id_commande;
 
         return $this;
     }

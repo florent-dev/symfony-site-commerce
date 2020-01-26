@@ -92,8 +92,9 @@
                     {% if app.user %}
                         <p><a href="{{ path('panier_valider') }}" class="btn btn-primary py-3 px-4">Passer commande</a></p>
                     {% else %}
-                        <p><a href="{{ path('utilisateur_accueil') }}" class="btn btn-primary py-3 px-4">Connectez-vous pour valider la commande</a></p>
+                        <p><a href="{{ path('app_login') }}" class="btn btn-primary py-3 px-4">Connectez-vous pour valider la commande</a></p>
                     {% endif %}
+                    <p><a href="{{ path('boutique') }}" class="btn btn-info py-3 px-4">Continuer mes recherches</a></p>
                 </div>
             </div>
         </div>

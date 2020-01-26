@@ -1,0 +1,16 @@
+<div class="bg-light p-2 pl-5 pr-5">
+    <section>
+        <div class="container text-center">
+
+            <div class="text-danger">TOP 3 DES VENTES</div>
+
+            {% for article in topArticles %}
+                <span class="ml-3">
+                    {{ article.0.libelle }}
+                    <span class="badge badge-info">{{ article.quantite }} ventes</span>
+                </span>
+            {% endfor %}
+
+        </div>
+    </section>
+</div>

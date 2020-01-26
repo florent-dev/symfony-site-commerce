@@ -11,6 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Commande
 {
+    const STATUT_LIBELLES = [
+        0 => 'Invalide',
+        1 => 'En cours',
+        2 => 'Terminé',
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -33,12 +39,6 @@ class Commande
      * @ORM\Column(type="integer")
      */
     private $statut;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\LigneCommande", inversedBy="id_commande")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $ligneCommande;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\LigneCommande", mappedBy="id_commande")
@@ -84,6 +84,15 @@ class Commande
         return $this->statut;
     }
 
+    public function getStatutLibelle(): string
+    {
+        if ($this->statut) {
+            return self::STATUT_LIBELLES[$this->statut];
+        } else {
+            return self::STATUT_LIBELLES[0];
+        }
+    }
+
     public function setStatut(int $statut): self
     {
         $this->statut = $statut;
@@ -91,24 +100,16 @@ class Commande
         return $this;
     }
 
-    public function getLigneCommande(): ?LigneCommande
-    {
-        return $this->ligneCommande;
-    }
-
-    public function setLigneCommande(?LigneCommande $ligneCommande): self
-    {
-        $this->ligneCommande = $ligneCommande;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|LigneCommande[]
-     */
-    public function getLigneCommandes(): Collection
+    public function getLigneCommandes()
     {
         return $this->ligneCommandes;
+    }
+
+    public function setLigneCommandes($ligneCommandes): self
+    {
+        $this->ligneCommandes = $ligneCommandes;
+
+        return $this;
     }
 
     public function addLigneCommande(LigneCommande $ligneCommande): self

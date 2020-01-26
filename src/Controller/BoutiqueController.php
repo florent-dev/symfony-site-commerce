@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+use App\Entity\Commande;
+use App\Entity\LigneCommande;
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,6 +57,15 @@ class BoutiqueController extends AbstractController
         }
         return $this->render('boutique/rayon.html.twig', [
             'products' => $products,
+        ]);
+    }
+
+    public function sideBarTopVentes()
+    {
+        $topArticles = $this->getDoctrine()->getRepository(Article::class)->getTop3Articles();
+
+        return $this->render('boutique/sidebar_top_ventes.html.twig', [
+            'topArticles' => $topArticles,
         ]);
     }
 }

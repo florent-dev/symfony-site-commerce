@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
+use App\Entity\LigneCommande;
 use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
 use App\Repository\UtilisateurRepository;
+use phpDocumentor\Reflection\Types\Collection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,8 +28,21 @@ class UtilisateurController extends AbstractController
      */
     public function index(UtilisateurRepository $utilisateurRepository): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        $commandes = $this->getDoctrine()->getRepository(Commande::class)->findBy(['id_utilisateur' => $this->getUser()->getId()]);
+
+        foreach ($commandes as $commande) {
+            $ligneCommandes = $this->getDoctrine()->getRepository(LigneCommande::class)->findBy(['id_commande' => $commande->getId()]);
+            $commande->setLigneCommandes($ligneCommandes);
+        }
+
+
         return $this->render('utilisateur/index.html.twig', [
             'utilisateur' => $this->getUser(),
+            'commandes' => $commandes,
         ]);
     }
 
@@ -51,7 +67,7 @@ class UtilisateurController extends AbstractController
 
             $this->get('session')->set('user', $utilisateur);
 
-            return $this->redirectToRoute('utilisateur_accueil');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('utilisateur/new.html.twig', [

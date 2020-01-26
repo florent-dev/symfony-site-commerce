@@ -15,10 +15,10 @@ class UtilisateurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, ['label' => 'Adresse e-mail'])
-            ->add('password', PasswordType::class, ['label' => 'Mot de passe'])
-            ->add('nom', TextType::class, ['label' => 'Nom'])
-            ->add('prenom', TextType::class, ['label' => 'Prénom'])
+            ->add('email', EmailType::class, ['label' => false, 'attr' => ['placeholder' => 'Adresse e-mail']])
+            ->add('password', PasswordType::class, ['label' => false, 'attr' => ['placeholder' => 'Mot de passe']])
+            ->add('nom', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'Nom']])
+            ->add('prenom', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'Prénom']])
         ;
     }
 

@@ -1,39 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateur index{% endblock %}
+{% block title %}Mon Espace Membre{% endblock %}
 
 {% block body %}
     <section>
         <div class="container">
-            {% if app.user %}
-                <h1>Utilisateur index</h1>
+            <h1>Vos commandes</h1>
+            {% for commande in commandes %}
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th>Password</th>
-                            <th>Nom</th>
-                            <th>Prenom</th>
-                            <th>actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ utilisateur.id }}</td>
-                            <td>{{ utilisateur.email }}</td>
-                            <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
-                            <td>{{ utilisateur.password }}</td>
-                            <td>{{ utilisateur.nom }}</td>
-                            <td>{{ utilisateur.prenom }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            {% else %}
-                Connectez-vous
-            {% endif %}
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h5 class="card-title">Commande #{{ commande.id }} - {{ commande.statutLibelle }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Passée le {{ commande.dateCommande|date('d/m/y') }}</h6>
+                        <p class="card-text">
+                            {% for ligneCommande in commande.ligneCommandes %}
+                                {{ ligneCommande.quantite }}x {{ ligneCommande.getIdArticle().libelle }} - {{ ligneCommande.prix }} €<br/>
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

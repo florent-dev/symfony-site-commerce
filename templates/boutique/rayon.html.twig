@@ -4,46 +4,45 @@
 
 {% block body %}
     <section class="ftco-section">
-        <section class="ftco-section ftco-category ftco-no-pt">
-            <div class="container">
-                <div class="row">
 
-                    {% for product in products %}
-                        <div class="col-md-6 ftco-animate">
-                            <div class="product">
-                                <a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('assets/images/' ~ product.visuel) }}" alt="Colorlib Template">
-                                    <div class="overlay"></div>
-                                </a>
-                                <div class="text py-3 pb-4 px-3 text-center">
-                                    <h3><a href="#">{{ product.libelle }}</a></h3>
-                                    <div class="d-flex">
-                                        <div class="pricing">
-                                            <p class="price"><span>{{ product.prix }} €</span></p>
+        {% if products|length > 0 %}
+            <section class="ftco-section ftco-category ftco-no-pt">
+                <div class="container">
+                    <div class="row">
+
+                        {% for product in products %}
+                            <div class="col-md-6 ftco-animate">
+                                <div class="product">
+                                    <a href="#" class="img-prod"><img class="img-fluid" src="{{ asset('assets/images/' ~ product.visuel) }}" alt="Colorlib Template">
+                                        <div class="overlay"></div>
+                                    </a>
+                                    <div class="text py-3 pb-4 px-3 text-center">
+                                        <h3><a href="#">{{ product.libelle }}</a></h3>
+                                        <div class="d-flex">
+                                            <div class="pricing">
+                                                <p class="price"><span>{{ product.prix }} €</span></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="bottom-area d-flex px-3">
-                                        <div class="m-auto d-flex">
-                                            <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                                <span><i class="ion-ios-menu"></i></span>
-                                            </a>
-                                            <a href="{{ path('panier_ajouter', {'idProduit': product.id, 'quantite': 1}) }}" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                                <span><i class="ion-ios-cart"></i></span>
-                                            </a>
+                                        <div class="bottom-area d-flex px-3">
+                                            <div class="m-auto d-flex">
+                                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                                    <span><i class="ion-ios-menu"></i></span>
+                                                </a>
+                                                <a href="{{ path('panier_ajouter', {'idProduit': product.id, 'quantite': 1}) }}" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                                    <span><i class="ion-ios-cart"></i></span>
+                                                </a>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
 
-                    {% if products|length == 0 %}
-                        {% trans %}Aucun produit n'a été trouvé{% endtrans %}
-                    {% endif %}
-
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        {% endif %}
 
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
@@ -54,6 +53,12 @@
                 </div>
             </div>
         </div>
+
+        {% if products|length == 0 %}
+            <div class="container text-center">
+                {% trans %}<h2>Aucun produit n'a été trouvé</h2>{% endtrans %}
+            </div>
+        {% endif %}
 
     </section>
 {% endblock %}
